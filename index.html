@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculadora</title>
+    <style>
+        th {
+              border: 1px solid black;
+            }
+        td {
+                text-align: center;
+            }
+            </style>
+    <script type="text/javascript">
+        function atualizeA() {
+            var form = document.getElementById("calculadoraA");
+            //Volumes
+            var p350A = form.elements["p350A"];
+            var p600A = form.elements["p600A"];
+            var p1000A = form.elements["p1000A"];
+            //Fixos
+            var precoA = parseFloat(form.elements["precoA"].value);
+            var volumeA = parseInt(form.elements["volumeA"].value);
+            //Contas
+            p350A.value = (precoA / volumeA * 350).toFixed(2);
+            p600A.value = (precoA / volumeA * 600).toFixed(2);
+            p1000A.value = (precoA / volumeA * 1000).toFixed(2);
+        }
+        function atualizeB() {
+            var form = document.getElementById("calculadoraB");
+            //Volumes
+            var p350B = form.elements["p350B"];
+            var p600B = form.elements["p600B"];
+            var p1000B = form.elements["p1000B"];
+            //Fixos
+            var precoB = parseFloat(form.elements["precoB"].value);
+            var volumeB = parseInt(form.elements["volumeB"].value);
+            //Contas
+            p350B.value = (precoB / volumeB * 350).toFixed(2);
+            p600B.value = (precoB / volumeB * 600).toFixed(2);
+            p1000B.value = (precoB / volumeB * 1000).toFixed(2);
+        }
+
+    </script>
+</head>
+
+
+<body>
+
+    <h1>This is a heading!</h1>
+    <p>This is a paragraph.</p>
+
+    
+
+    <table style="width:100%">
+        <tr>
+            <th>Lado A</th>
+            <th>Lado B</th>
+        </tr>
+        <tr>
+            <td><form id="calculadoraA" oninput="atualizeA()">
+                    <input name="precoA" type="number" step="0.01" />
+                    <input type="reset" /> <br>
+                    <input type="radio" name="volumeA" value="350" checked onchange="atualizeA()" /> 350 ml / (R$
+                    <output name="p350A" for="precoA"></output>)<br>
+                    <input type="radio" name="volumeA" value="600" onchange="atualizeA()" /> 600 ml / (R$
+                    <output name="p600A" for="precoA"></output>)<br>
+                    <input type="radio" name="volumeA" value="1000" onchange="atualizeA()" /> 1 Litro / (R$
+                    <output name="p1000A" for="precoA"></output>)<br>
+            
+                </form></td>
+            <td><form id="calculadoraB" oninput="atualizeB()">
+                    <input name="precoB" type="number" step="0.01" />
+                    <input type="reset" /> <br>
+                    <input type="radio" name="volumeB" value="350" checked onchange="atualizeB()" /> 350 ml / (R$
+                    <output name="p350B" for="precoB"></output>)<br>
+                    <input type="radio" name="volumeB" value="600" onchange="atualizeB()" /> 600 ml / (R$
+                    <output name="p600B" for="precoB"></output>)<br>
+                    <input type="radio" name="volumeB" value="1000" onchange="atualizeB()" /> 1 Litro / (R$
+                    <output name="p1000B" for="precoB"></output>)<br>
+            
+                </form></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
